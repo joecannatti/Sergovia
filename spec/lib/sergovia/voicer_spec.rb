@@ -21,22 +21,22 @@ describe Voicer do
 
   describe ".increment" do
     it "moves e to f" do
-      Voicer.increment(:e4).should eq :f4
+      Voicer.new.increment(:e4).should eq :f4
     end
     it "moves b to c" do
-      Voicer.increment(:b3).should eq :c4
+      Voicer.new.increment(:b3).should eq :c4
     end
     it "moves c to c#" do
-      Voicer.increment(:c3).should eq :'c#3'
+      Voicer.new.increment(:c3).should eq :'c#3'
     end
     it "moves bb to b" do
-      Voicer.increment(:bb3).should eq :'b3'
+      Voicer.new.increment(:bb3).should eq :'b3'
     end
     it "moves a# to b" do
-      Voicer.increment(:'a#3').should eq :'b3'
+      Voicer.new.increment(:'a#3').should eq :'b3'
     end
     it "moves a to a#" do
-      Voicer.increment(:'a3').should eq :'a#3'
+      Voicer.new.increment(:'a3').should eq :'a#3'
     end
   end
 

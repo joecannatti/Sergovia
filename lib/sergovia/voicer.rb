@@ -8,12 +8,15 @@ class Voicer
     build_fretboard
   end
 
-  def self.increment(pitch)
+  def voicings(pitches)
+  end
+
+  def increment(pitch)
     pitch_string = pitch.to_s.downcase
     match = /([a-z][#]?[b]?)([0-9])/.match(pitch_string)
     note = match[1].to_sym
     octave = match[2].to_i
-    note = Voicer.to_sharp_key_notation(note) 
+    note = to_sharp_key_notation(note) 
     if note == :b
       octave += 1
     end
@@ -23,7 +26,7 @@ class Voicer
 
   protected
 
-  def self.to_sharp_key_notation(pitch)
+  def to_sharp_key_notation(pitch)
     @to_sharp_key_notation_map ||= { 
       :bb => :'a#', 
       :db => :'c#', 
@@ -34,7 +37,7 @@ class Voicer
     @to_sharp_key_notation_map[pitch] || pitch
   end
 
-  def self.pitch_inc_map
+  def pitch_inc_map
     @pitch_inc_map ||= { 
       :a => :'a#', 
       :'a#' => :b, 
@@ -54,7 +57,7 @@ class Voicer
   def build_fretboard
     @fretboard ||= @tuning.map  do |starting_pitch|
       (0..@frets - 1).inject([starting_pitch]) do |res, count|
-        res << Voicer.increment(res.last)
+        res << increment(res.last)
       end
     end
   end
