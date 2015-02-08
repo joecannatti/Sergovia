@@ -5,8 +5,8 @@ describe Voicer do
   describe "instantiation" do
 
     it "optionally takes tunings and fret count" do
-      v = Voicer.new(tuning: [:d4, :a4, :d3, :g3, :b3, :e2], frets: 19)
-      v.tuning.should eq [:d4, :a4, :d3, :g3, :b3, :e2]
+      v = Voicer.new(tuning: [:e4, :a4, :d3, :g3, :b3, :d2], frets: 19)
+      v.tuning.should eq [:e4, :a4, :d3, :g3, :b3, :d2]
       v.frets.should eq 19
     end
 
