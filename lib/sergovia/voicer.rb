@@ -2,13 +2,22 @@ class Voicer
 
   attr_reader :tuning, :frets, :fretboard
 
-  def initialize(tuning:[:e4, :a4, :d3, :g3, :b3, :e2], frets: 24)
+  def initialize(tuning:[:e2, :a2, :d3, :g3, :b3, :e4], frets: 24)
     @tuning = tuning
     @frets = frets
     build_fretboard
   end
 
-  def voicings(pitches)
+  def locations_for(pitch)
+    locations = []
+    fretboard.each_with_index do |string, string_num|
+      string.each_with_index do |note, fret_num|
+        if note == pitch
+          locations << {string: string_num + 1, fret: fret_num}
+        end
+      end
+    end
+    locations
   end
 
   def increment(pitch)
@@ -55,7 +64,7 @@ class Voicer
   end
 
   def build_fretboard
-    @fretboard ||= @tuning.map  do |starting_pitch|
+    @fretboard ||= @tuning.reverse.map  do |starting_pitch|
       (0..@frets - 1).inject([starting_pitch]) do |res, count|
         res << increment(res.last)
       end

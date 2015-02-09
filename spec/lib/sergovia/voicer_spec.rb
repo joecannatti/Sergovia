@@ -19,6 +19,28 @@ describe Voicer do
 
   end
 
+  describe "locations_for" do
+
+    it "returns the only e2" do
+      locations = Voicer.new.locations_for(:e2)
+      locations.count.should eq 1
+      locations.first[:string].should eq 6
+      locations.first[:fret].should eq 0
+    end
+    it "returns both a2s" do
+      locations = Voicer.new.locations_for(:a2)
+      locations.count.should eq 2
+      locations.first[:string].should eq 5
+      locations.first[:fret].should eq 0
+      locations[1][:string].should eq 6
+      locations[1][:fret].should eq 5
+    end
+    it "returns all e4s" do
+      locations = Voicer.new.locations_for(:e4)
+      locations.count.should eq 6
+    end
+  end
+
   describe ".increment" do
     it "moves e to f" do
       Voicer.new.increment(:e4).should eq :f4
