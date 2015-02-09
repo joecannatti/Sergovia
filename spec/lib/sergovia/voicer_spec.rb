@@ -62,5 +62,23 @@ describe Voicer do
     end
   end
 
+  describe "#theoretical_voicings" do
+
+    it "retuns the only way to playable way to voice a low power chord and the one unplayable way" do
+      Voicer.new.theoretical_voicings("e2,b2").should eq [[{:string=>6, :fret=>0}, {:string=>5, :fret=>2}],[{:string=>6, :fret=>0}, {:string=>6, :fret=>7}]]
+    end
+
+    it "low a power chord has 6 possibilities" do
+      Voicer.new.theoretical_voicings("a2,e3").count.should eq 6
+    end
+  end
+
+  describe "#voicings" do
+
+    it "removes voicings with 2 notes on the same string" do
+      Voicer.new.voicings("a2,e3").count.should eq 4
+    end
+  end
+
 end
 

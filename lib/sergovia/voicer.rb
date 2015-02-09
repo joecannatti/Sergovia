@@ -8,7 +8,20 @@ class Voicer
     build_fretboard
   end
 
+  def voicings(pitch_sting)
+    in_theory = theoretical_voicings(pitch_sting)
+    in_theory.reject { |v| v.group_by { |h| h[:string] }.any? { |k,v| v.size > 1 } }
+  end
+
+  def theoretical_voicings(pitch_string)
+    groups = pitch_string.split(",").map do |pitch|
+      locations_for(pitch)
+    end
+    groups.first.product(*groups[1..-1])
+  end
+
   def locations_for(pitch)
+    pitch = pitch.to_sym
     locations = []
     fretboard.each_with_index do |string, string_num|
       string.each_with_index do |note, fret_num|
