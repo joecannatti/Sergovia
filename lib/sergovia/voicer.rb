@@ -21,12 +21,14 @@ class Voicer
   end
 
   def locations_for(pitch)
-    pitch = pitch.to_sym
+    original_pitch_name = pitch.to_sym
+    pitch = to_sharp_key_notation(original_pitch_name)
+
     locations = []
     fretboard.each_with_index do |string, string_num|
       string.each_with_index do |note, fret_num|
         if note == pitch
-          locations << {string: string_num + 1, fret: fret_num}
+          locations << {string: string_num + 1, fret: fret_num, pitch: original_pitch_name}
         end
       end
     end
