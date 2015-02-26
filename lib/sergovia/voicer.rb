@@ -28,7 +28,7 @@ class Voicer
     fretboard.each_with_index do |string, string_num|
       string.each_with_index do |note, fret_num|
         if note == pitch
-          locations << {string: string_num + 1, fret: fret_num, pitch: original_pitch_name}
+          locations << OpenStruct.new({string: string_num + 1, fret: fret_num, pitch: original_pitch_name})
         end
       end
     end

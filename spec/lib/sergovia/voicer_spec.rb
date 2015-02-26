@@ -79,8 +79,8 @@ describe Voicer do
   describe "#theoretical_voicings" do
 
     it "retuns the only way to playable way to voice a low power chord and the one unplayable way" do
-      Voicer.new.theoretical_voicings("e2,b2").should eq [[{:string=>6, :fret=>0, :pitch=>:e2}, {:string=>5, :fret=>2, :pitch=>:b2}],
-                                                          [{:string=>6, :fret=>0, :pitch=>:e2}, {:string=>6, :fret=>7, :pitch=>:b2}]]
+      Voicer.new.theoretical_voicings("e2,b2").should eq [[OpenStruct.new({:string=>6, :fret=>0, :pitch=>:e2}), OpenStruct.new({:string=>5, :fret=>2, :pitch=>:b2})],
+                                                          [OpenStruct.new({:string=>6, :fret=>0, :pitch=>:e2}), OpenStruct.new({:string=>6, :fret=>7, :pitch=>:b2})]]
     end
 
     it "low a power chord has 6 possibilities" do
