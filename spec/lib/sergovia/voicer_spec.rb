@@ -39,6 +39,20 @@ describe Voicer do
       locations = Voicer.new.locations_for(:e4)
       locations.count.should eq 6
     end
+
+    it "works with sharps" do
+      locations = Voicer.new.locations_for(:'f#2')
+      locations.count.should eq 1
+      locations.first[:string].should eq 6
+      locations.first[:fret].should eq 2
+    end
+
+    it "works with flats" do
+      locations = Voicer.new.locations_for(:'gb2')
+      locations.count.should eq 1
+      locations.first[:string].should eq 6
+      locations.first[:fret].should eq 2
+    end
   end
 
   describe ".increment" do
@@ -79,6 +93,7 @@ describe Voicer do
     it "removes voicings with 2 notes on the same string" do
       Voicer.new.voicings("a2,e3").count.should eq 4
     end
+
   end
 
 end

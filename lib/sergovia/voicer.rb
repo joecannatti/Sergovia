@@ -51,14 +51,13 @@ class Voicer
   protected
 
   def to_sharp_key_notation(pitch)
-    @to_sharp_key_notation_map ||= { 
-      :bb => :'a#', 
-      :db => :'c#', 
-      :eb => :'d#', 
-      :gb => :'f#', 
-      :ab => :'g#'
-    }
-    @to_sharp_key_notation_map[pitch] || pitch
+    pitch_str = pitch.to_s
+    pitch_str.gsub!('bb','a#')
+    pitch_str.gsub!('db', 'c#')
+    pitch_str.gsub!('eb' , 'd#')
+    pitch_str.gsub!('gb' , 'f#')
+    pitch_str.gsub!('ab' , 'g#')
+    pitch_str.to_sym
   end
 
   def pitch_inc_map

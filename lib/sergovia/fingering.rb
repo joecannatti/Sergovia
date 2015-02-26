@@ -1,3 +1,7 @@
 class Fingering
-  attr_reader :string, :fret, :pitch
+  attr_reader :voicing
+
+  def initialize(voicing:)
+    @voicing = voicing
+  end
 end
