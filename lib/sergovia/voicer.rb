@@ -10,7 +10,7 @@ class Voicer
 
   def voicings(pitch_sting)
     in_theory = theoretical_voicings(pitch_sting)
-    in_theory.reject { |v| v.group_by { |h| h[:string] }.any? { |k,v| v.size > 1 } }
+    in_theory.reject { |v| v.group_by { |h| h.string }.any? { |k,v| v.size > 1 } }
   end
 
   def theoretical_voicings(pitch_string)
@@ -28,7 +28,7 @@ class Voicer
     fretboard.each_with_index do |string, string_num|
       string.each_with_index do |note, fret_num|
         if note == pitch
-          locations << OpenStruct.new({string: string_num + 1, fret: fret_num, pitch: original_pitch_name})
+          locations << Note.new(string: string_num + 1, fret: fret_num, pitch: original_pitch_name)
         end
       end
     end

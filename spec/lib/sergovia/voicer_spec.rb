@@ -24,16 +24,16 @@ describe Voicer do
     it "returns the only e2" do
       locations = Voicer.new.locations_for(:e2)
       locations.count.should eq 1
-      locations.first[:string].should eq 6
-      locations.first[:fret].should eq 0
+      locations.first.string.should eq 6
+      locations.first.fret.should eq 0
     end
     it "returns both a2s" do
       locations = Voicer.new.locations_for(:a2)
       locations.count.should eq 2
-      locations.first[:string].should eq 5
-      locations.first[:fret].should eq 0
-      locations[1][:string].should eq 6
-      locations[1][:fret].should eq 5
+      locations.first.string.should eq 5
+      locations.first.fret.should eq 0
+      locations[1].string.should eq 6
+      locations[1].fret.should eq 5
     end
     it "returns all e4s" do
       locations = Voicer.new.locations_for(:e4)
@@ -43,15 +43,15 @@ describe Voicer do
     it "works with sharps" do
       locations = Voicer.new.locations_for(:'f#2')
       locations.count.should eq 1
-      locations.first[:string].should eq 6
-      locations.first[:fret].should eq 2
+      locations.first.string.should eq 6
+      locations.first.fret.should eq 2
     end
 
     it "works with flats" do
       locations = Voicer.new.locations_for(:'gb2')
       locations.count.should eq 1
-      locations.first[:string].should eq 6
-      locations.first[:fret].should eq 2
+      locations.first.string.should eq 6
+      locations.first.fret.should eq 2
     end
   end
 
@@ -79,8 +79,8 @@ describe Voicer do
   describe "#theoretical_voicings" do
 
     it "retuns the only way to playable way to voice a low power chord and the one unplayable way" do
-      Voicer.new.theoretical_voicings("e2,b2").should eq [[OpenStruct.new({:string=>6, :fret=>0, :pitch=>:e2}), OpenStruct.new({:string=>5, :fret=>2, :pitch=>:b2})],
-                                                          [OpenStruct.new({:string=>6, :fret=>0, :pitch=>:e2}), OpenStruct.new({:string=>6, :fret=>7, :pitch=>:b2})]]
+      Voicer.new.theoretical_voicings("e2,b2").should eq [[Note.new(string: 6, fret: 0, pitch: :e2), Note.new(string: 5, fret: 2, pitch: :b2)],
+                                                          [Note.new(string: 6, fret: 0, pitch: :e2), Note.new(string: 6, fret: 7, pitch: :b2)]]
     end
 
     it "low a power chord has 6 possibilities" do
