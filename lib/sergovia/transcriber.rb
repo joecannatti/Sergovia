@@ -1,4 +1,4 @@
-class Voicer
+class Transcriber 
 
   attr_reader :tuning, :frets, :fretboard
 

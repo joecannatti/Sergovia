@@ -6,6 +6,6 @@ class Chord
   end
 
   def fingerings
-    Voicer.new.voicings(@pitch_string).map { |v| Fingering.new(voicing: v) }
+    Transcriber.new.voicings(@pitch_string).map { |v| Fingering.new(voicing: v) }
   end
 end
