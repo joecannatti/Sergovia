@@ -1,7 +1,9 @@
-class Fingering
-  attr_reader :voicing
+module Sergovia
+  class Fingering
+    attr_reader :notes
 
-  def initialize(voicing:)
-    @voicing = voicing
+    def initialize(notes:)
+      @notes = notes
+    end
   end
 end

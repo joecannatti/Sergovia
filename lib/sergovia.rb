@@ -6,5 +6,7 @@ require "sergovia/fingering"
 require "sergovia/note"
 require "ostruct"
 
+
 module Sergovia
+  STANDARD_TUNING = [:e2, :a2, :d3, :g3, :b3, :e4]
 end
