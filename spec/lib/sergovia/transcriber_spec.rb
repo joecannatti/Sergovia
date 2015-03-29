@@ -82,10 +82,14 @@ module Sergovia
       end
     end
 
-    describe "#voicings" do
+    describe "#fingerings" do
 
       it "removes voicings with 2 notes on the same string" do
         Transcriber.new.fingerings("a2,e3").count.should eq 4
+      end
+
+      it "sets the playability value" do
+        Transcriber.new.fingerings("a2,e3").map(&:playability).any?(&:nil?).should eq false
       end
 
     end

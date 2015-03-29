@@ -18,7 +18,7 @@ module Sergovia
             return 1.00
           end
         else
-          return nil
+          return 1.00
         end
       end
 

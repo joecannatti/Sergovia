@@ -11,7 +11,7 @@ module Sergovia
 
     def fingerings(pitch_sting)
       in_theory = theoretical_fingerings(pitch_sting)
-      in_theory.reject do |v| 
+      ret = in_theory.reject do |v| 
         grouped_by_string = {}
         v.notes.each do |n|
           grouped_by_string[n.string] ||= []
@@ -19,6 +19,9 @@ module Sergovia
         end
         grouped_by_string.any? { |k,v| v.size > 1 }
       end
+      ret.map do |fingering|
+        Fingering.new(notes:fingering.notes, playability: Scorers::Stretch.new(fingering).score)
+      end.sort_by(&:playability).reverse
     end
 
     def theoretical_fingerings(pitch_string)
