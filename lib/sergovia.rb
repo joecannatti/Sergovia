@@ -4,6 +4,7 @@ require "sergovia/chord"
 require "sergovia/transcriber"
 require "sergovia/fingering"
 require "sergovia/note"
+require "sergovia/scorers/stretch"
 require "ostruct"
 
 
