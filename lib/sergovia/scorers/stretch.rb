@@ -12,8 +12,15 @@ module Sergovia
         #handle nils
         frets = fingering.notes.map(&:fret).reject { |n| n == 0 }.sort
         if frets.count > 1
-          if (frets.max - frets.min) > 4
+          span = (frets.max - frets.min)
+          if span > 6
             return 0.00
+          elsif span == 6
+            return 0.10
+          elsif span == 5
+            return 0.25
+          elsif span == 4
+            return 0.75
           else
             return 1.00
           end
