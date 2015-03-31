@@ -18,7 +18,7 @@ In this example, we ask sergovia how to play the notes of an open E chord. Sergo
                                               @playability=1.0>]
 ```
 
-Next we'll ask how many ways there are to play a C major triad starting on the lowest C on the standard tuned guitar. We see that there are 8 ways, but that only 3 of those are easily playable. One of them is maybe possible, but very hard. The remaining 4 are unplayable.
+Next we'll ask how many ways there are to play a C major triad in a closed voicing starting on the lowest C on the standard tuned guitar. We see that there are 8 ways, but that only 3 of those are easily playable. One of them is maybe possible, but very hard. The remaining 4 are unplayable.
 
 ```ruby
 Sergovia::Chord.new('c3,e3,g3').fingerings
