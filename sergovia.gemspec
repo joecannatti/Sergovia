@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["joecannatti@gmail.com"]
   spec.summary       = %q{A gem to calculate the playability of chords on the guitar}
   spec.description   = %q{Sergovia is a Ruby implementation of a simple alogrithm that computes how playable a chord is on the guitar.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/joecannatti/Sergovia"
   spec.license       = "GPL-2.0+"
 
   spec.files         = `git ls-files -z`.split("\x0")
