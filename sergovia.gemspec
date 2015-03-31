@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Sergovia::VERSION
   spec.authors       = ["Joe Cannatti"]
   spec.email         = ["joecannatti@gmail.com"]
-  spec.summary       = %q{A gem to calculate the playability of chords on guitar}
-  spec.description   = %q{Sergovia is a Ruby implementation of an alogrithm that computes how playable a chord is on the guitar.}
+  spec.summary       = %q{A gem to calculate the playability of chords on the guitar}
+  spec.description   = %q{Sergovia is a Ruby implementation of a simple alogrithm that computes how playable a chord is on the guitar.}
   spec.homepage      = ""
   spec.license       = "GPL-2.0+"
 
