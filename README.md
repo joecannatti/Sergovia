@@ -4,10 +4,18 @@ Sergovia produces a list of all possible ways to play a chord on the guitar. It 
 
 # Usage
 
-```
+In this example, we ask sergovia how to play the notes of an open E chord. Sergovia tells us that there is only one way to play those six notes and that it is 100% playable
+
+```ruby
   require 'sergovia'
   Sergovia::Chord.new('e2,b2,e3,g#3,b3,e4').fingerings
-   => [#<Sergovia::Fingering:0x000001031b5fb8 @notes=[#<Sergovia::Note:0x0000010114a0d0 @fret=0, @string=6, @pitch=:e2>, #<Sergovia::Note:0x00000101148d70 @fret=2, @string=5, @pitch=:b2>, #<Sergovia::Note:0x000001011436e0 @fret=2, @string=4, @pitch=:e3>, #<Sergovia::Note:0x00000101142498 @fret=1, @string=3, @pitch=:"g#3">, #<Sergovia::Note:0x00000101140e90 @fret=0, @string=2, @pitch=:b3>, #<Sergovia::Note:0x0000010113ba08 @fret=0, @string=1, @pitch=:e4>], @playability=1.0>]
+   => [#<Sergovia::Fingering:0x000001031b5fb8 @notes=[#<Sergovia::Note:0x0000010114a0d0 @fret=0, @string=6, @pitch=:e2>, 
+                                                      #<Sergovia::Note:0x00000101148d70 @fret=2, @string=5, @pitch=:b2>,
+                                                      #<Sergovia::Note:0x000001011436e0 @fret=2, @string=4, @pitch=:e3>,
+                                                      #<Sergovia::Note:0x00000101142498 @fret=1, @string=3, @pitch=:"g#3">,
+                                                      #<Sergovia::Note:0x00000101140e90 @fret=0, @string=2, @pitch=:b3>,
+                                                      #<Sergovia::Note:0x0000010113ba08 @fret=0, @string=1, @pitch=:e4>], 
+                                              @playability=1.0>]
 ```
 
 ### Terms as they are used in this project (Lexicon)
