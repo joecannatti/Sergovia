@@ -1,4 +1,8 @@
-### Lexicon
+# Sergovia
+
+Sergovia produces a list of all possible ways to play a chord on the guitar. It ranks them by their playability. It is primarily intented to be useful to two groups of musicians. The first is composers who do not play the guitar but want to write guitar music. The second is guitarists learning or arranging a new piece. I expect it to mostly be useful to classical musicians, but I hope it will sometimes be effective for other genres.
+
+### Terms as they are used in this project (Lexicon)
 
 * Chord
   * A collection of pitches played simultaneously 
