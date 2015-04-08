@@ -11,5 +11,9 @@ module Sergovia
     def fingerings
       Transcriber.new(tuning: tuning, frets: frets).fingerings(@pitch_string)
     end
+
+    def to_tab
+      fingerings.map(&:to_tab).transpose.map { |string| string.join("--") }.join("\n")
+    end
   end
 end

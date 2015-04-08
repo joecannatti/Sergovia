@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'sergovia'
+
+p Sergovia::Chord.new(ARGV.first)
