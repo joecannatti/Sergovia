@@ -13,7 +13,7 @@ module Sergovia
     end
 
     def to_tab
-      fingerings.map(&:to_tab).transpose.map { |string| string.join("--") }.join("\n")
+      fingerings.select{ |f| f.playability > 0.0 }.map(&:to_tab).transpose.map { |string| string.join("--") }.join("\n")
     end
   end
 end
